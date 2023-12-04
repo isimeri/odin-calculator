@@ -141,6 +141,9 @@ function calculate(){
     result = operate(op1, operator, op2);
     screenOtherRegion.textContent += op2 + " = ";
     screenMainRegion.textContent = result;
+    if(screenMainRegion.textContent.includes(".")){
+        dotUsed = true;
+    }
     operator = null;
     op2 = null;
     op1 = null;
@@ -170,7 +173,7 @@ equalBtn.addEventListener("click", () => {
 dotBtn.addEventListener("click", handleDotClick);
 backspaceBtn.addEventListener("click", handleBackspaceClick);
 document.addEventListener("keydown", (e) => {
-    
+
     if(numberKeys.includes(e.key)){
         handleNumberClick(e.key);
     } else if (operatorKeys.includes(e.key)){
